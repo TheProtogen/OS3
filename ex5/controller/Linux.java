@@ -15,6 +15,10 @@ public class Linux extends Thread {
 		this.threadID = threadID;
 	}
 	
+	private String os() {
+		return System.getProperty("os.name");
+	}
+	
 	
 	@Override
 	public void run() {
@@ -34,9 +38,15 @@ public class Linux extends Thread {
 	}
 	
 	public void imprimirPing(String site, String siteNome) {
+		String nomeOperacao = "";
 		
 		// Windows "-n"  |  Linux "-c"
-		String nomeOperacao = " ping -4 -c 10 ";
+		if (os().contains("Linux")) {
+			nomeOperacao = " ping -4 -c 10 ";
+		} else {
+			nomeOperacao = " ping -4 -n 10 ";
+		}
+		
 		
 		String pingResult = "";
 		
