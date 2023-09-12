@@ -36,7 +36,7 @@ public class Linux extends Thread {
 	public void imprimirPing(String site, String siteNome) {
 		
 		// Windows "-n"  |  Linux "-c"
-		String nomeOperacao = " ping -4 -n 10 ";
+		String nomeOperacao = " ping -4 -c 10 ";
 		
 		String pingResult = "";
 		
